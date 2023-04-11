@@ -7,6 +7,10 @@ public class GunSystem2 : MonoBehaviour
 
     public Camera fpsCam;
 
+    public Transform attackPoint;
+    //Graphics
+    public GameObject muzzleFlash;
+
     private void Start()
     {
        
@@ -34,7 +38,20 @@ public class GunSystem2 : MonoBehaviour
 
             //this only occurs if we hit something with our ray
             Debug.Log(hitInfo.transform.name);
+
+            Target target = hitInfo.transform.GetComponent<Target>();
+            if(target != null)
+            {
+                target.TakeDamage(damage);
+            }
+
         }
 
+        float offset = 0.05f; // decrease this value to move the muzzle flash closer to the attackPoint
+
+        GameObject flash = Instantiate(muzzleFlash, attackPoint.position + attackPoint.forward * offset, attackPoint.rotation);
+      
+        Destroy(flash,0.020f);
     }
+
 }
