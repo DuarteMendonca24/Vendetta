@@ -47,7 +47,7 @@ public class GunSystem2 : MonoBehaviour
 
         }
 
-        float offset = 0.05f; // decrease this value to move the muzzle flash closer to the attackPoint
+        float offset = 0.02f; // decrease this value to move the muzzle flash closer to the attackPoint
 
         GameObject flash = Instantiate(muzzleFlash, attackPoint.position + attackPoint.forward * offset, attackPoint.rotation);
       
