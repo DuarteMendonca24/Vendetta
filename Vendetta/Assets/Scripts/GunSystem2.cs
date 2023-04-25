@@ -11,19 +11,26 @@ public class GunSystem2 : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
 
+
+    
+  
+    
+
     private void Start()
     {
        
         Cursor.lockState = CursorLockMode.Locked;
+       
+        
 
     }
     // Update is called once per frame
     void Update()
     {
-        
+       
 
         //Fire1 is a default button set up by Unity , left mouse button
-        if (Input.GetButtonDown("Fire1")){
+        if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false) {
 
             Shoot();
 
