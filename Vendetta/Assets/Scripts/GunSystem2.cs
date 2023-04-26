@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GunSystem2 : MonoBehaviour
 {
@@ -11,10 +13,12 @@ public class GunSystem2 : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
 
+    public float ammo = 20f;
 
-    
-  
-    
+    public TextMeshProUGUI ammoDisplay;
+
+
+ 
 
     private void Start()
     {
@@ -28,17 +32,23 @@ public class GunSystem2 : MonoBehaviour
     void Update()
     {
        
-
+        ammoDisplay.text = "Ammo : " + ammo.ToString();
         //Fire1 is a default button set up by Unity , left mouse button
-        if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false) {
+        if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0) {
 
             Shoot();
 
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ammo = 20f;
+        }
+        
     }
 
     public void Shoot()
-    {   
+    {
+        ammo--;
         //variable used to store some information about what we shot with our ray
         RaycastHit hitInfo;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward , out hitInfo , range)){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float gravity = -9.8f;
     public float jumpheight = 1.5f;
+    public float health = 50f;
+    public TextMeshProUGUI healthDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthDisplay.text = "Health : " + health.ToString();
         isGrounded = controller.isGrounded;
     }
 
