@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthDisplay.text = "Health : " + health.ToString();
         isGrounded = controller.isGrounded;
     }
 
