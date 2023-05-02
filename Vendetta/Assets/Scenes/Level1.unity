@@ -3182,7 +3182,7 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 1
   sightRange: 12
   attackRange: 4
   playerInSightRange: 0

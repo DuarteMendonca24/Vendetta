@@ -42,10 +42,19 @@ public class EnemyBehaviour : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-       
+
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (playerInSightRange && playerInAttackRange )
+        {
+            agent.SetDestination(transform.position); // stop moving while attacking
+            transform.LookAt(player);
+            if (!alreadyAttacked)
+            {
+                AttackPlayer();
+            }
+            
+        }
     }
 
     private void Patrolling()
@@ -85,10 +94,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Debug.Log("Chase");
         agent.SetDestination(player.position);
+
     }
 
     private void AttackPlayer()
     {
+        
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {
@@ -109,6 +120,14 @@ public class EnemyBehaviour : MonoBehaviour
 
         GameObject flash = Instantiate(muzzleFlash, attackPoint.position + attackPoint.forward * offset, attackPoint.rotation);
 
-        Destroy(flash, 0.010f);
+        Destroy(flash, 0.15f);
+
+        alreadyAttacked = true;
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
+    }
+
+    void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
 }
