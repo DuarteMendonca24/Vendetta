@@ -118,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         float offset = 0.02f; // decrease this value to move the muzzle flash closer to the attackPoint
 
-        GameObject flash = Instantiate(muzzleFlash, attackPoint.position + attackPoint.forward * offset, attackPoint.rotation);
+        GameObject flash = Instantiate(muzzleFlash, attackPoint.position, attackPoint.rotation, attackPoint);
 
         Destroy(flash, 0.15f);
 

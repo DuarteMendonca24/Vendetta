@@ -46,6 +46,8 @@ public class GunSystem2 : MonoBehaviour
         
     }
 
+
+
     public void Shoot()
     {
         ammo--;
@@ -64,10 +66,8 @@ public class GunSystem2 : MonoBehaviour
 
         }
 
-        float offset = 0.02f; // decrease this value to move the muzzle flash closer to the attackPoint
+        GameObject flash = Instantiate(muzzleFlash, attackPoint.position, attackPoint.rotation, attackPoint);
 
-        GameObject flash = Instantiate(muzzleFlash, attackPoint.position + attackPoint.forward * offset, attackPoint.rotation);
-      
         Destroy(flash,0.020f);
     }
 
