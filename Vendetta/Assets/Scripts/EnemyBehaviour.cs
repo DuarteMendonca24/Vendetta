@@ -31,10 +31,15 @@ public class EnemyBehaviour : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
 
+    public float walkingSpeed = 1.5f;
+    private bool isWalking = false;
+
+    private Animator animator;
     private void Start()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,8 +47,20 @@ public class EnemyBehaviour : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        
 
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
+        if (!playerInSightRange && !playerInAttackRange)
+        {
+            if (!isWalking)
+            {
+                animator.SetTrigger("Walk");
+                isWalking = true;
+            }
+            Patrolling();
+            
+
+        }
+        
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange )
         {
@@ -55,6 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
             }
             
         }
+        
     }
 
     private void Patrolling()
@@ -64,7 +82,14 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (walkPointSet)
         {
+           
+
+            agent.speed = walkingSpeed;
             agent.SetDestination(walkPoint);
+            
+
+
+
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -72,6 +97,9 @@ public class EnemyBehaviour : MonoBehaviour
         if(distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
+            isWalking = false;
+
+
         }
     }
 
