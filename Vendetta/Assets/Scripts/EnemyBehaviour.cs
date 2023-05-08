@@ -49,10 +49,12 @@ public class EnemyBehaviour : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         
 
+
         if (!playerInSightRange && !playerInAttackRange)
         {
             if (!isWalking)
             {
+                walkingSpeed = 1.5f; 
                 animator.SetTrigger("Walk");
                 isWalking = true;
             }
@@ -60,14 +62,21 @@ public class EnemyBehaviour : MonoBehaviour
             
 
         }
-        
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+
+        if (playerInSightRange && !playerInAttackRange)
+        {
+            walkingSpeed = 2.5f;
+            animator.SetTrigger("Run");
+            ChasePlayer();
+        }
         if (playerInSightRange && playerInAttackRange )
         {
             agent.SetDestination(transform.position); // stop moving while attacking
-            transform.LookAt(player);
+           
             if (!alreadyAttacked)
             {
+                animator.SetTrigger("Fire");
+               
                 AttackPlayer();
             }
             
@@ -110,7 +119,7 @@ public class EnemyBehaviour : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX , transform.position.y , transform.position.z + randomZ);
-        Debug.Log(walkPoint.magnitude);
+        //Debug.Log(walkPoint.magnitude);
         //Check if point is not outside the map
         if(Physics.Raycast(walkPoint, -transform.up,2f,whatIsGround))
         {
@@ -120,7 +129,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Debug.Log("Chase");
+        //Debug.Log("Chase");
         agent.SetDestination(player.position);
 
     }
@@ -133,7 +142,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
 
             //this only occurs if we hit something with our ray
-            Debug.Log(hitInfo.transform.name);
+            //Debug.Log(hitInfo.transform.name);
 
             Target target = hitInfo.transform.GetComponent<Target>();
             if (target != null)
@@ -144,7 +153,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         }
 
-        float offset = 0.02f; // decrease this value to move the muzzle flash closer to the attackPoint
+
 
         GameObject flash = Instantiate(muzzleFlash, attackPoint.position, attackPoint.rotation, attackPoint);
 
