@@ -65,14 +65,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (playerInSightRange && !playerInAttackRange)
         {
-            walkingSpeed = 2.5f;
+            walkingSpeed = 40.0f;
             animator.SetTrigger("Run");
             ChasePlayer();
         }
         if (playerInSightRange && playerInAttackRange )
         {
             agent.SetDestination(transform.position); // stop moving while attacking
-           
+            transform.LookAt(player);
+
             if (!alreadyAttacked)
             {
                 animator.SetTrigger("Fire");
@@ -80,6 +81,10 @@ public class EnemyBehaviour : MonoBehaviour
                 AttackPlayer();
             }
             
+        }
+        else
+        {
+            animator.SetTrigger("StopFire");
         }
         
     }
