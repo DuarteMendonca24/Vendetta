@@ -55,6 +55,10 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# Package related files that can be ignored or are better kept user-specific
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/Packages/com.unity.polybrush/Settings.json
+
 # Crashlytics generated file
 crashlytics-build.properties
 
