@@ -46,7 +46,7 @@ public class GunSystem2 : MonoBehaviour
         {
             Debug.Log(hitInfo.transform.name);
 
-            Target target = hitInfo.transform.GetComponent<Target>();
+            EnemyDamage target = hitInfo.transform.GetComponent<EnemyDamage>();
             if (target != null)
             {
                 target.TakeDamage(damage);

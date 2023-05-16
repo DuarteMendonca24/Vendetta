@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyRifle : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -174,7 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward,Color.yellow,5.0f);
 
-            Target target = hitInfo.transform.GetComponent<Target>();
+            PlayerDamage target = hitInfo.transform.GetComponent<PlayerDamage>();
             if (target != null)
             {
 

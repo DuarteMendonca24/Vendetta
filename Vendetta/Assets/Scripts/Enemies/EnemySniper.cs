@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyRoof : MonoBehaviour
+public class EnemySniper : MonoBehaviour
 {
    
 
@@ -84,7 +84,7 @@ public class EnemyRoof : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward, Color.yellow, 5.0f);
 
-            Target target = hitInfo.transform.GetComponent<Target>();
+            PlayerDamage target = hitInfo.transform.GetComponent<PlayerDamage>();
             if (target != null)
             {
 
