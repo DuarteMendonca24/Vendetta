@@ -25,7 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float damage = 0.1f;
     public float range = 100f;
 
-    public Camera fpsCam;
+    
 
     public Transform attackPoint;
     //Graphics
@@ -35,6 +35,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool isWalking = false;
 
     private Animator animator;
+
+  
     private void Start()
     {
         player = GameObject.Find("Player").transform;
@@ -47,17 +49,24 @@ public class EnemyBehaviour : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        
+
+        agent.speed = walkingSpeed;
 
 
         if (!playerInSightRange && !playerInAttackRange)
         {
-            if (!isWalking)
-            {
-                walkingSpeed = 1.5f; 
-                animator.SetTrigger("Walk");
-                isWalking = true;
-            }
+           
+            
+                walkingSpeed = 1.5f;
+               
+            //animator.SetTrigger("Walk");
+            animator.SetBool("IsWalking", true);
+                animator.SetBool("IsRunning", false);
+
+
+            Debug.Log("Walking");
+                
+            
             Patrolling();
             
 
@@ -65,27 +74,34 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (playerInSightRange && !playerInAttackRange)
         {
-            walkingSpeed = 40.0f;
-            animator.SetTrigger("Run");
+            walkingSpeed = 10.0f;
+            // animator.SetTrigger("Run");
+            animator.SetBool("IsRunning", true);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsFiring", false);
+
+            Debug.Log("Run");
+
             ChasePlayer();
         }
-        if (playerInSightRange && playerInAttackRange )
+        else if (playerInSightRange && playerInAttackRange )
         {
             agent.SetDestination(transform.position); // stop moving while attacking
             transform.LookAt(player);
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsFiring", true);
 
-            if (!alreadyAttacked)
+
+            if (!alreadyAttacked && !animator.GetCurrentAnimatorStateInfo(0).IsName("RIfleRun"))
             {
-                animator.SetTrigger("Fire");
-               
+
                 AttackPlayer();
+                
+
             }
             
         }
-        else
-        {
-            animator.SetTrigger("StopFire");
-        }
+       
         
     }
 
@@ -96,10 +112,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (walkPointSet)
         {
-           
 
-            agent.speed = walkingSpeed;
-            agent.SetDestination(walkPoint);
+
+            if (!agent.pathPending)
+            {
+                agent.SetDestination(walkPoint);
+            }
+           
             
 
 
@@ -118,9 +137,12 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+
+
+
+{
+    //Calculate random point in range
+    float randomZ = Random.Range(-walkPointRange, walkPointRange); 
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX , transform.position.y , transform.position.z + randomZ);
@@ -143,11 +165,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         
         RaycastHit hitInfo;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
+        if (Physics.Raycast(attackPoint.transform.position, attackPoint.transform.forward, out hitInfo, range))
         {
-
+            //animator.SetTrigger("Fire");
+            
+            Debug.Log("Fire");
             //this only occurs if we hit something with our ray
-            //Debug.Log(hitInfo.transform.name);
+            Debug.Log(hitInfo.transform.name);
+            Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward,Color.yellow,5.0f);
 
             Target target = hitInfo.transform.GetComponent<Target>();
             if (target != null)
@@ -159,10 +184,11 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
 
+       
 
         GameObject flash = Instantiate(muzzleFlash, attackPoint.position, attackPoint.rotation, attackPoint);
 
-        Destroy(flash, 0.15f);
+        Destroy(flash, 0.10f);
 
         alreadyAttacked = true;
         Invoke(nameof(ResetAttack), timeBetweenAttacks);
