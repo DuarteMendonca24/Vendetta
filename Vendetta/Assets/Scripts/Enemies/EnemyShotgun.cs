@@ -84,10 +84,9 @@ public class EnemyShotgun : MonoBehaviour
 
             Debug.Log("Run");
 
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("FiringShotgun"))
-            {
+            
                 ChasePlayer();
-            }
+            
           
         }
         else if (playerInSightRange && playerInAttackRange)
