@@ -87,7 +87,9 @@ public class EnemyRifle : MonoBehaviour
         else if (playerInSightRange && playerInAttackRange )
         {
             agent.SetDestination(transform.position); // stop moving while attacking
-            transform.LookAt(player);
+            Vector3 lookPos = player.transform.position;
+            lookPos.y = transform.position.y;
+            transform.LookAt(lookPos);
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFiring", true);
 

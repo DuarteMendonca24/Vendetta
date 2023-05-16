@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -46,8 +47,16 @@ public class EnemySniper : MonoBehaviour
 
        if (playerInAttackRange)
         {
-          
-            transform.LookAt(player);
+            if(player.transform.position.y < transform.position.y)
+            {
+                transform.LookAt(player);
+            }
+            else
+            {
+                Vector3 lookPos = player.transform.position;
+                lookPos.y = transform.position.y;
+                transform.LookAt(lookPos);
+            }
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsShooting", true);
 

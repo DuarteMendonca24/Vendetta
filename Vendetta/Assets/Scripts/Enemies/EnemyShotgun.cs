@@ -64,7 +64,7 @@ public class EnemyShotgun : MonoBehaviour
             //animator.SetTrigger("Walk");
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsRunning", false);
-
+            
 
             Debug.Log("Walking");
 
@@ -84,17 +84,25 @@ public class EnemyShotgun : MonoBehaviour
 
             Debug.Log("Run");
 
-            ChasePlayer();
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("FiringShotgun"))
+            {
+                ChasePlayer();
+            }
+          
         }
         else if (playerInSightRange && playerInAttackRange)
         {
             agent.SetDestination(transform.position); // stop moving while attacking
-            transform.LookAt(player);
+            //transform.LookAt(player);
+
+            Vector3 lookPos = player.transform.position;
+            lookPos.y = transform.position.y;
+            transform.LookAt(lookPos);
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFiring", true);
 
 
-            if (!alreadyAttacked && !animator.GetCurrentAnimatorStateInfo(0).IsName("RIfleRun"))
+            if (!alreadyAttacked && !animator.GetCurrentAnimatorStateInfo(0).IsName("ShotgunRun"))
             {
 
                 AttackPlayer();
