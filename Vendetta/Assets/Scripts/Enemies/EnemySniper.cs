@@ -21,7 +21,7 @@ public class EnemySniper : MonoBehaviour
     public float attackRange;
     public bool  playerInAttackRange;
 
-    public float damage = 0.1f;
+    public int damage = 1;
     public float range = 100f;
 
     

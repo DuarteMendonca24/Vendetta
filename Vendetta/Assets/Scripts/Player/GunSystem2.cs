@@ -13,6 +13,7 @@ public class GunSystem2 : MonoBehaviour
     public GameObject muzzleFlash;
 
     public float ammo = 20f;
+    public int maxammo = 20;
     public TextMeshProUGUI ammoDisplay;
 
     private float nextShotTime = 0.0f;
@@ -24,7 +25,7 @@ public class GunSystem2 : MonoBehaviour
 
     private void Update()
     {
-        ammoDisplay.text = "Ammo : " + ammo.ToString();
+        ammoDisplay.text =  ammo.ToString() + "/" + maxammo.ToString();
 
         if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0 && Time.time >= nextShotTime)
         {

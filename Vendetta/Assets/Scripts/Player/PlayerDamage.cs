@@ -1,14 +1,20 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public float health = 50f;
+    public int health = 50;
     public TextMeshProUGUI healthDisplay;
-   
+    public Slider healthBar;
+
+    private void Start()
+    {
+        
+    }
 
     //public function because we will need to call it from the gun script
-    public void TakeDamage (float amount)
+    public void TakeDamage (int amount)
     {
         health -= amount;
 
@@ -20,8 +26,8 @@ public class PlayerDamage : MonoBehaviour
     
     void Update()
     {
-        healthDisplay.text = "Health : " + health.ToString();
-        
+       // healthDisplay.text = "Health : " + health.ToString();
+        healthBar.value = health;
 
     }
     void Die()

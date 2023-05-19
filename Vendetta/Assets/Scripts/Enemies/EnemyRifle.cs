@@ -22,7 +22,7 @@ public class EnemyRifle : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange , playerInAttackRange;
 
-    public float damage = 0.1f;
+    public int damage = 1;
     public float range = 100f;
 
     
