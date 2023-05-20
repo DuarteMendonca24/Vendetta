@@ -64,7 +64,7 @@ public class EnemyRifle : MonoBehaviour
                 animator.SetBool("IsRunning", false);
 
 
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
                 
             
             Patrolling();
@@ -80,7 +80,7 @@ public class EnemyRifle : MonoBehaviour
             animator.SetBool("IsWalking", false);
             animator.SetBool("IsFiring", false);
 
-            Debug.Log("Run");
+           // Debug.Log("Run");
 
             ChasePlayer();
         }
@@ -109,7 +109,7 @@ public class EnemyRifle : MonoBehaviour
 
     private void Patrolling()
     {
-        Debug.Log("Patrolling");
+       // Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)

@@ -34,4 +34,19 @@ public class PlayerDamage : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("HealthKit"))
+        {
+            health += 20;
+            if(health > 50)
+            {
+                health = 50;
+            }
+            // Destruir o objeto que foi colidido
+            Destroy(hit.gameObject);
+
+        }
+    }
 }

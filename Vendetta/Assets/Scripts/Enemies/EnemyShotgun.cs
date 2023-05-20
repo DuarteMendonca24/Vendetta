@@ -66,7 +66,7 @@ public class EnemyShotgun : MonoBehaviour
             animator.SetBool("IsRunning", false);
             
 
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
 
 
             Patrolling();
@@ -116,7 +116,7 @@ public class EnemyShotgun : MonoBehaviour
 
     private void Patrolling()
     {
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)

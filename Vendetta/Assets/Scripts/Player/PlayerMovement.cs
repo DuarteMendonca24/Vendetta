@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.PackageManager;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float gravity = -9.8f;
     public float jumpheight = 1.5f;
-  
+
+    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,4 +56,6 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = Mathf.Sqrt(jumpheight * -1.5f * gravity);
         }
     }
+
+    
 }
