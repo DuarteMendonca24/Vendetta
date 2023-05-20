@@ -6,20 +6,27 @@ using UnityEngine.UI;
 
 public class HealthKits : MonoBehaviour
 {
-    public Slider healthBar;
-    public int healthValue = 20;
+    public float floatSpeed = 1.0f;  // Speed of the floating movement
+    public float floatHeight = 1.0f; // Height of the floating movement
 
+    private Vector3 startPosition;
 
-
-    public void GiveHealth(int healthvalue2)
+    private void Start()
     {
-        healthBar.value += healthvalue2;
+        // Store the initial position of the object
+        startPosition = transform.position;
     }
 
-  
+    private void Update()
+    {
+        // Calculate the new position using a sine wave
+        float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+    }
 
-   
-    
+
+
+
 
 
 }
