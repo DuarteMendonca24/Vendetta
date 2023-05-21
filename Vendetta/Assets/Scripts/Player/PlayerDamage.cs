@@ -37,7 +37,7 @@ public class PlayerDamage : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.CompareTag("HealthKit"))
+        if (hit.collider.CompareTag("SmallHealthKit"))
         {
             health += 20;
             if(health > 50)
@@ -47,6 +47,12 @@ public class PlayerDamage : MonoBehaviour
             // Destruir o objeto que foi colidido
             Destroy(hit.gameObject);
 
+        }
+
+        if (hit.collider.CompareTag("BigHealthKit"))
+        {
+            health = 50;
+            Destroy(hit.gameObject);
         }
     }
 }
