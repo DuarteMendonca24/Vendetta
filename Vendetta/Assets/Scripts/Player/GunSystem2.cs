@@ -18,9 +18,12 @@ public class GunSystem2 : MonoBehaviour
 
     private float nextShotTime = 0.0f;
 
+    private WeponSwitching weponSwitching;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        weponSwitching = new WeponSwitching();
     }
 
     private void Update()
@@ -30,6 +33,24 @@ public class GunSystem2 : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0 && Time.time >= nextShotTime)
         {
             Shoot();
+            if (gameObject.CompareTag("Pistol"))
+            {
+                FindObjectOfType<AudioManager>().PlaySound("PistolShot");
+            }
+            else if (gameObject.CompareTag("Shotgun"))
+            {
+                FindObjectOfType<AudioManager>().PlaySound("ShotgunShot");
+            }
+            else if (gameObject.CompareTag("Rifle"))
+            {
+                FindObjectOfType<AudioManager>().PlaySound("RifleShot");
+            }
+
+
+
+
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.R))

@@ -15,6 +15,7 @@ public class Consumables : MonoBehaviour
     {
         // Store the initial position of the object
         startPosition = transform.position;
+        startPosition.y = 0.45f;
     }
 
     private void Update()
