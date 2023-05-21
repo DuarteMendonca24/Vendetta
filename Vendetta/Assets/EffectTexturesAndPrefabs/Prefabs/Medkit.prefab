@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8844405401836987415}
   - component: {fileID: 5553633572071746482}
   - component: {fileID: 7707505071949733752}
+  - component: {fileID: -2562121306864911292}
+  - component: {fileID: 6103831649326964231}
   m_Layer: 0
   m_Name: Medkit
-  m_TagString: HealthKit
+  m_TagString: SmallHealthKit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8211877925104549549}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.329052, y: 0.30999994, z: -12.310748}
+  m_LocalPosition: {x: -34.329052, y: -1.3, z: -12.310748}
   m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,3 +85,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2562121306864911292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211877925104549549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33755417bae82dc4092108b940f804d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatSpeed: 1
+  floatHeight: 0.1
+--- !u!65 &6103831649326964231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211877925104549549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9901194, y: 0.45114952, z: 0.76427305}
+  m_Center: {x: 0, y: 0.22557476, z: -0.05911687}
