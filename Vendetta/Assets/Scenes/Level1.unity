@@ -12285,7 +12285,7 @@ MonoBehaviour:
   attackPoint: {fileID: 895986071}
   muzzleFlash: {fileID: 1391847458487284, guid: 9bf79f2d846a57440a981c168c87c617, type: 3}
   ammo: 20
-  maxammo: 20
+  maxcolder: 20
   ammoDisplay: {fileID: 1103103817}
 --- !u!4 &500059572 stripped
 Transform:
@@ -17816,8 +17816,8 @@ MonoBehaviour:
   fpsCam: {fileID: 896701733}
   attackPoint: {fileID: 959467165}
   muzzleFlash: {fileID: 1391847458487284, guid: 9bf79f2d846a57440a981c168c87c617, type: 3}
-  ammo: 5
-  maxammo: 5
+  ammo: 20
+  maxcolder: 20
   ammoDisplay: {fileID: 1103103817}
 --- !u!1001 &689550973
 PrefabInstance:
@@ -18437,7 +18437,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &705770557 stripped
 Transform:
@@ -24265,8 +24265,8 @@ MonoBehaviour:
   fpsCam: {fileID: 896701733}
   attackPoint: {fileID: 1601417843}
   muzzleFlash: {fileID: 1391847458487284, guid: 9bf79f2d846a57440a981c168c87c617, type: 3}
-  ammo: 10
-  maxammo: 10
+  ammo: 12
+  maxcolder: 12
   ammoDisplay: {fileID: 1103103817}
 --- !u!4 &894753992 stripped
 Transform:
@@ -27134,7 +27134,7 @@ Transform:
   m_Children:
   - {fileID: 8982619365314745955}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &997987745 stripped
 Transform:
@@ -62712,7 +62712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2915245723952027506, guid: 0d4c13d6ca9bced4cba517da3f831059, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2915245723952027506, guid: 0d4c13d6ca9bced4cba517da3f831059, type: 3}
       propertyPath: m_LocalPosition.x

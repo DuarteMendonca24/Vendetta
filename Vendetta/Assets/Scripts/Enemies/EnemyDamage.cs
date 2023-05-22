@@ -11,6 +11,8 @@ public class EnemyDamage : MonoBehaviour
     private EnemyShotgun enemyShotgun;
     private EnemySniper enemySniper;
 
+    private bool isDead = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -20,20 +22,34 @@ public class EnemyDamage : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
-        health -= amount;
-
-        if (health <= 0)
+        if (isDead == false)
         {
-            animator.SetBool("IsDeath", true);
-            enemyRifle.enabled = false;
-            // enemyShotgun.enabled = false;
-            // enemySniper.enabled = false;
-           
-            Invoke("DropConsumable", 6.0f);
-            Invoke("Die",8.0f);
-            Debug.Log("MORTE");
-            
+            health -= amount;
+            if (health <= 0)
+            {
+                isDead = true;
+                animator.SetBool("IsDeath", true);
+                if (enemyRifle != null)
+                {
+                    enemyRifle.enabled = false;
+                }
+                else if (enemyShotgun != null)
+                {
+                    enemyShotgun.enabled = false;
+                }
+                else if (enemyRifle != null)
+                {
+                    enemyRifle.enabled = false;
+                }
+
+                Invoke("DropConsumable", 3.0f);
+                Invoke("Die", 7.0f);
+                Debug.Log("MORTE");
+
+
+            }
         }
+        
     }
 
      void Die()
@@ -43,7 +59,7 @@ public class EnemyDamage : MonoBehaviour
     }
 
     void DropConsumable()
-    {
+    {   
         int random = Random.Range(0, 2);
         Instantiate(consumable[random], transform.position, Quaternion.identity);
     }

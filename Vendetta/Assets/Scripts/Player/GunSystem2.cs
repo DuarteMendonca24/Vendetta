@@ -12,8 +12,9 @@ public class GunSystem2 : MonoBehaviour
     public Transform attackPoint;
     public GameObject muzzleFlash;
 
-    public float ammo = 20f;
-    public int maxammo = 20;
+    public int ammo = 20;
+    public int maxcolder = 20;
+    private int savemax;
     public TextMeshProUGUI ammoDisplay;
 
     private float nextShotTime = 0.0f;
@@ -23,12 +24,13 @@ public class GunSystem2 : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        savemax = maxcolder;
       
     }
 
     private void Update()
     {
-        ammoDisplay.text =  ammo.ToString() + "/" + maxammo.ToString();
+        ammoDisplay.text =  ammo.ToString() + "/" + maxcolder.ToString();
 
         if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0 && Time.time >= nextShotTime)
         {
@@ -47,15 +49,18 @@ public class GunSystem2 : MonoBehaviour
             }
 
 
-
-
-
-
         }
 
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ammo = 20f;
+              
+                for(; ammo<savemax && maxcolder>0; ammo++ )
+                {   
+                   
+                    maxcolder--;
+                }
+            
         }
     }
 
