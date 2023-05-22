@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - HealthKit
+  - SmallHealthKit
+  - BigHealthKit
+  - Pistol
+  - Shotgun
+  - Rifle
   layers:
   - Default
   - TransparentFX

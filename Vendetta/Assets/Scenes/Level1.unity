@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17737,6 +17737,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1866863028788630, guid: 5056d20a32324e1438d988478b9dc3e2, type: 3}
+      propertyPath: m_TagString
+      value: Shotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 4968210953875670, guid: 5056d20a32324e1438d988478b9dc3e2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -17808,7 +17812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   range: 30
-  fireRate: 0.2
+  fireRate: 1
   fpsCam: {fileID: 896701733}
   attackPoint: {fileID: 959467165}
   muzzleFlash: {fileID: 1391847458487284, guid: 9bf79f2d846a57440a981c168c87c617, type: 3}
@@ -24158,6 +24162,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836355246}
     m_Modifications:
+    - target: {fileID: 1026158408783414, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315703642089732, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
+      propertyPath: m_TagString
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315703642089732, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1375090684829650, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Pistol_Small_01
@@ -24169,6 +24185,10 @@ PrefabInstance:
     - target: {fileID: 1375090684829650, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375090684829650, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
+      propertyPath: m_TagString
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 4221455095403150, guid: 6a6b35cc4500f264d86e660d0f975977, type: 3}
       propertyPath: m_RootOrder
@@ -34489,7 +34509,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5fd646579417c4d81a06bf9e234b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: PistolShot
+    clip: {fileID: 8300000, guid: bbdc312dec118654c84ba0fab6e31931, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ShotgunShot
+    clip: {fileID: 8300000, guid: d1cf4c3d200d02d4ab4c747ac45952b8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: RifleShot
+    clip: {fileID: 8300000, guid: b67095985156ad046b0de029d86d4c17, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &1261981949
 Transform:
   m_ObjectHideFlags: 0
@@ -34874,6 +34912,10 @@ PrefabInstance:
     - target: {fileID: 1117582899397640, guid: 689946d975a0e55449b1e7ae41933e73, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117582899397640, guid: 689946d975a0e55449b1e7ae41933e73, type: 3}
+      propertyPath: m_TagString
+      value: Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 1426050648627750, guid: 689946d975a0e55449b1e7ae41933e73, type: 3}
       propertyPath: m_Layer
@@ -35908,18 +35950,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1300415912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300415889}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c65ec72a789e7054cb2def9f996feed8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1300415916
 AudioSource:
   m_ObjectHideFlags: 0

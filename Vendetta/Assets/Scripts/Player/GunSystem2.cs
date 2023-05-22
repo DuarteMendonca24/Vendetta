@@ -18,12 +18,12 @@ public class GunSystem2 : MonoBehaviour
 
     private float nextShotTime = 0.0f;
 
-    private WeponSwitching weponSwitching;
+  
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        weponSwitching = new WeponSwitching();
+      
     }
 
     private void Update()
@@ -76,7 +76,7 @@ public class GunSystem2 : MonoBehaviour
         }
 
         GameObject flash = Instantiate(muzzleFlash, attackPoint.position, attackPoint.rotation, attackPoint);
-        Destroy(flash, 0.020f);
+        Destroy(flash, 0.15f);
 
         // Set the next shot time based on the fire rate
         nextShotTime = Time.time + fireRate;
