@@ -13,12 +13,15 @@ public class EnemyDamage : MonoBehaviour
 
     private bool isDead = false;
 
+    Collider capsuleCollider;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         enemyRifle = GetComponent<EnemyRifle>();
         enemyShotgun = GetComponent<EnemyShotgun>();
         enemySniper = GetComponent<EnemySniper>();
+        capsuleCollider = GetComponent<Collider>();
     }
     public void TakeDamage(float amount)
     {
@@ -31,7 +34,9 @@ public class EnemyDamage : MonoBehaviour
                 animator.SetBool("IsDeath", true);
                 if (enemyRifle != null)
                 {
+                    capsuleCollider.enabled = false;
                     enemyRifle.enabled = false;
+                    
                 }
                 else if (enemyShotgun != null)
                 {
@@ -45,7 +50,7 @@ public class EnemyDamage : MonoBehaviour
                 Invoke("DropConsumable", 3.0f);
                 Invoke("Die", 7.0f);
                 Debug.Log("MORTE");
-
+                capsuleCollider.enabled=false;
 
             }
         }

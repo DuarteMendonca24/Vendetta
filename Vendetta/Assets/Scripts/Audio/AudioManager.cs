@@ -34,10 +34,10 @@ public class AudioManager : MonoBehaviour
     }
 
     //Musica durante o jogo , depois nao esquecer ativar o loop
-   // private void Start()
-   // {
-   //     PlaySound("Theme");
-   // }
+    private void Start()
+    {
+        PlaySound("Door");
+    }
 
     public void PlaySound(string name)
     {

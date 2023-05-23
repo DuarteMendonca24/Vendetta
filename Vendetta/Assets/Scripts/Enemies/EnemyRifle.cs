@@ -98,7 +98,8 @@ public class EnemyRifle : MonoBehaviour
             {
 
                 AttackPlayer();
-                
+                FindObjectOfType<AudioManager>().PlaySound("RifleShot");
+
 
             }
             

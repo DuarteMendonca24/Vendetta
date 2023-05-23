@@ -14,7 +14,7 @@ public class GunSystem2 : MonoBehaviour
 
     public int ammo = 20;
     public int maxcolder = 20;
-    private int savemax;
+    public int savemax;
     public TextMeshProUGUI ammoDisplay;
 
     private float nextShotTime = 0.0f;

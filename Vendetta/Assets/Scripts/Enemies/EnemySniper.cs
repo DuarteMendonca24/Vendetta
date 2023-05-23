@@ -66,6 +66,8 @@ public class EnemySniper : MonoBehaviour
 
                 AttackPlayer();
                 animator.SetBool("IsShooting", false);
+                FindObjectOfType<AudioManager>().PlaySound("SniperShot");
+
 
 
             }

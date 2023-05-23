@@ -105,6 +105,7 @@ public class EnemyShotgun : MonoBehaviour
             {
 
                 AttackPlayer();
+                FindObjectOfType<AudioManager>().PlaySound("ShotgunShot");
 
 
             }
