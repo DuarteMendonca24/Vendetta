@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 4169661190788540}
   - component: {fileID: 33426129588949072}
   - component: {fileID: 23834064337174200}
-  - component: {fileID: 64251302277950512}
   - component: {fileID: 1366967427775766871}
   - component: {fileID: -6938593035765420178}
   m_Layer: 0
   m_Name: SM_Item_Bullet_01
-  m_TagString: Untagged
+  m_TagString: PistolAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351777790571804}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.614931, y: 0.75, z: -10.624174}
+  m_LocalPosition: {x: -26.614931, y: 0.736, z: -10.624174}
   m_LocalScale: {x: 12.717688, y: 12.717688, z: 12.717688}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64251302277950512
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351777790571804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43372201722678104, guid: 56d98119881dee041b1263ff3fcee193, type: 2}
 --- !u!65 &1366967427775766871
 BoxCollider:
   m_ObjectHideFlags: 0

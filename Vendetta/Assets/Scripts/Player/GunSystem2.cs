@@ -14,7 +14,7 @@ public class GunSystem2 : MonoBehaviour
 
     public int ammo = 20;
     public int maxcolder = 20;
-    public int savemax;
+    public int maxammo = 12;
     public TextMeshProUGUI ammoDisplay;
 
     private float nextShotTime = 0.0f;
@@ -24,7 +24,6 @@ public class GunSystem2 : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        savemax = maxcolder;
       
     }
 
@@ -55,9 +54,8 @@ public class GunSystem2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
               
-                for(; ammo<savemax && maxcolder>0; ammo++ )
+                for(; ammo<maxammo && maxcolder>0; ammo++ )
                 {   
-                   
                     maxcolder--;
                 }
               
