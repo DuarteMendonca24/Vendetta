@@ -35899,7 +35899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   gravity: -9.8
-  jumpheight: 1
+  jumpheight: 0.4
 --- !u!114 &1300415896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61149,6 +61149,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1197238346841392, guid: d7e7ae8f6bdb1e34c88632c5154a5d68, type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208270612486588, guid: d7e7ae8f6bdb1e34c88632c5154a5d68, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1208270612486588, guid: d7e7ae8f6bdb1e34c88632c5154a5d68, type: 3}

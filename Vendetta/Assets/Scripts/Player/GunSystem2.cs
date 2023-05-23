@@ -60,7 +60,7 @@ public class GunSystem2 : MonoBehaviour
                    
                     maxcolder--;
                 }
-            
+              
         }
     }
 

@@ -37,9 +37,9 @@ public class EnemyDamage : MonoBehaviour
                 {
                     enemyShotgun.enabled = false;
                 }
-                else if (enemyRifle != null)
+                else if (enemySniper != null)
                 {
-                    enemyRifle.enabled = false;
+                    enemySniper.enabled = false;
                 }
 
                 Invoke("DropConsumable", 3.0f);
@@ -60,8 +60,13 @@ public class EnemyDamage : MonoBehaviour
 
     void DropConsumable()
     {   
-        int random = Random.Range(0, 2);
-        Instantiate(consumable[random], transform.position, Quaternion.identity);
+        int random = Random.Range(0, 10);
+        if(random == 0 || random==1 || random == 2 || random == 3)
+        {
+            int randomconsumable = Random.Range(0, 2);
+            Instantiate(consumable[randomconsumable], transform.position, Quaternion.identity);
+        }
+       
     }
 
 }
