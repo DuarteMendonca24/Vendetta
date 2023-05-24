@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyDamage : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class EnemyDamage : MonoBehaviour
     private bool isDead = false;
 
     Collider capsuleCollider;
+    public NavMeshAgent agent;
 
     private void Start()
     {
@@ -29,7 +31,12 @@ public class EnemyDamage : MonoBehaviour
         {
             health -= amount;
             if (health <= 0)
-            {
+            {   
+                if(agent != null)
+                {
+                    agent.SetDestination(transform.position);
+                }
+                
                 isDead = true;
                 animator.SetBool("IsDeath", true);
                 if (enemyRifle != null)
@@ -68,7 +75,7 @@ public class EnemyDamage : MonoBehaviour
         int random = Random.Range(0, 10);
         if(random == 0 || random==1 || random == 2 || random == 3)
         {
-            int randomconsumable = Random.Range(0, 2);
+            int randomconsumable = Random.Range(0, 5);
             Instantiate(consumable[randomconsumable], transform.position, Quaternion.identity);
         }
        
