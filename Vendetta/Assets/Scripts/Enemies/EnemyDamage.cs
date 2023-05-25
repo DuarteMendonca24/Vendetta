@@ -17,7 +17,8 @@ public class EnemyDamage : MonoBehaviour
     Collider capsuleCollider;
     public NavMeshAgent agent;
 
-    private int consumableRange = 6;
+    
+    
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class EnemyDamage : MonoBehaviour
                     capsuleCollider.enabled = false;
                     enemyRifle.enabled = false;
                     
+                    
                 }
                 else if (enemyShotgun != null)
                 {
@@ -57,10 +59,12 @@ public class EnemyDamage : MonoBehaviour
                 }
 
                 
-                if(agent != null)
+                if(agent != null )
                 {
                     Invoke("DropConsumable", 3.0f);
+                    
                 }
+                
                 
                     
                 
@@ -83,15 +87,11 @@ public class EnemyDamage : MonoBehaviour
         Debug.Log("DROPOU");
         int random = Random.Range(0, 10);
         
-        if(random == 0 || random==1 || random == 2 || random == 3)
+        if(random == 0 || random==1 || random == 2 || random == 3 )
         {
-            int randomconsumable = Random.Range(0, consumableRange);
+            int randomconsumable = Random.Range(0, 5);
             Instantiate(consumable[randomconsumable], transform.position, Quaternion.identity);
-            Debug.Log(randomconsumable);
-            if (randomconsumable == 5)
-            {
-                consumableRange = 5;
-            }
+            
             
         }
        
