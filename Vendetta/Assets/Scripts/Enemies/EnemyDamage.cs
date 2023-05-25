@@ -17,6 +17,8 @@ public class EnemyDamage : MonoBehaviour
     Collider capsuleCollider;
     public NavMeshAgent agent;
 
+    private int consumableRange = 6;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -31,14 +33,14 @@ public class EnemyDamage : MonoBehaviour
         {
             health -= amount;
             if (health <= 0)
-            {   
-                if(agent != null)
+            {
+                animator.SetBool("IsDeath", true);
+                if (agent != null)
                 {
                     agent.SetDestination(transform.position);
                 }
                 
                 isDead = true;
-                animator.SetBool("IsDeath", true);
                 if (enemyRifle != null)
                 {
                     capsuleCollider.enabled = false;
@@ -54,10 +56,16 @@ public class EnemyDamage : MonoBehaviour
                     enemySniper.enabled = false;
                 }
 
-                Invoke("DropConsumable", 3.0f);
+                
+                if(agent != null)
+                {
+                    Invoke("DropConsumable", 3.0f);
+                }
+                
+                    
+                
                 Invoke("Die", 7.0f);
-                Debug.Log("MORTE");
-                capsuleCollider.enabled=false;
+                capsuleCollider.enabled = false;
 
             }
         }
@@ -71,12 +79,20 @@ public class EnemyDamage : MonoBehaviour
     }
 
     void DropConsumable()
-    {   
+    {
+        Debug.Log("DROPOU");
         int random = Random.Range(0, 10);
+        
         if(random == 0 || random==1 || random == 2 || random == 3)
         {
-            int randomconsumable = Random.Range(0, 5);
+            int randomconsumable = Random.Range(0, consumableRange);
             Instantiate(consumable[randomconsumable], transform.position, Quaternion.identity);
+            Debug.Log(randomconsumable);
+            if (randomconsumable == 5)
+            {
+                consumableRange = 5;
+            }
+            
         }
        
     }

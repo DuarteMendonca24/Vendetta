@@ -90,10 +90,10 @@ public class EnemySniper : MonoBehaviour
         {
             //animator.SetTrigger("Fire");
 
-            Debug.Log(range);
-            //this only occurs if we hit something with our ray
-            Debug.Log(hitInfo.transform.name);
-            Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward, Color.yellow, 5.0f);
+           //Debug.Log(range);
+           ////this only occurs if we hit something with our ray
+           //Debug.Log(hitInfo.transform.name);
+           //Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward, Color.yellow, 5.0f);
 
             PlayerDamage target = hitInfo.transform.GetComponent<PlayerDamage>();
             if (target != null)
