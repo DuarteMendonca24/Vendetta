@@ -64,7 +64,7 @@ public class PlayerDamage : MonoBehaviour
 
         if (hit.collider.CompareTag("PistolAmmo"))
         {
-            Debug.Log("Pistol ammo");
+            //Debug.Log("Pistol ammo");
             PistolGunSystem.maxcolder += 12;
             if (PistolGunSystem.maxcolder > 24) PistolGunSystem.maxcolder = 24;
             // Destruir o objeto que foi colidido

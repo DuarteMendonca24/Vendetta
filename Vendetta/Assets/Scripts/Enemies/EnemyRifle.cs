@@ -172,9 +172,9 @@ public class EnemyRifle : MonoBehaviour
         {
             //animator.SetTrigger("Fire");
             
-            Debug.Log("Fire");
+            //Debug.Log("Fire");
             //this only occurs if we hit something with our ray
-            Debug.Log(hitInfo.transform.name);
+            //Debug.Log(hitInfo.transform.name);
             Debug.DrawRay(attackPoint.transform.position, attackPoint.transform.forward,Color.yellow,5.0f);
 
             PlayerDamage target = hitInfo.transform.GetComponent<PlayerDamage>();

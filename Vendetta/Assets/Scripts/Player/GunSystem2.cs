@@ -69,7 +69,7 @@ public class GunSystem2 : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {
-            Debug.Log(hitInfo.transform.name);
+            //Debug.Log(hitInfo.transform.name);
 
             EnemyDamage target = hitInfo.transform.GetComponent<EnemyDamage>();
             if (target != null)
