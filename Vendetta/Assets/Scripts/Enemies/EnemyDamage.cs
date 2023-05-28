@@ -97,7 +97,7 @@ public class EnemyDamage : MonoBehaviour
         }
         else if(killCount.enemyCount == 1)
         {
-            Debug.Log("Estou aqui");
+            //Debug.Log("Estou aqui");
             Instantiate(key, transform.position, Quaternion.identity);
         }
     }

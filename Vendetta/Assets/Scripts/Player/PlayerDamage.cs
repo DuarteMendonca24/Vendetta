@@ -1,23 +1,27 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
     public int health = 50;
     public TextMeshProUGUI healthDisplay;
     public Slider healthBar;
+    private DoorOpening door;
 
     [Header("Gun Systems")]
     public GunSystem2 PistolGunSystem;
     public GunSystem2 M4GunSystem;
     public GunSystem2 ShotGunSystem;
+    
 
     private void Awake()
     {
         //PistolGunSystem = GameObject.FindGameObjectWithTag("Pistol").GetComponent<GunSystem2>();
         //PistolGunSystem = GameObject.FindGameObjectWithTag("Rifle").GetComponent<GunSystem2>();
         //PistolGunSystem = GameObject.FindGameObjectWithTag("Shotgun").GetComponent<GunSystem2>();
+        door = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorOpening>();
     }
 
     //public function because we will need to call it from the gun script
@@ -87,6 +91,16 @@ public class PlayerDamage : MonoBehaviour
             Destroy(hit.gameObject);
         }
 
+        if (hit.collider.CompareTag("Key"))
+        {
+            door.enabled = true;
+            Destroy(hit.gameObject);
+        }
 
+        if (hit.collider.CompareTag("Letter"))
+        {
+            Destroy(hit.gameObject);
+            SceneManager.LoadScene("Level2");
+        }
     }
 }
