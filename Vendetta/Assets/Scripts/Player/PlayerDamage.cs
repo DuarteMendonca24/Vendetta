@@ -14,6 +14,10 @@ public class PlayerDamage : MonoBehaviour
     public GunSystem2 PistolGunSystem;
     public GunSystem2 M4GunSystem;
     public GunSystem2 ShotGunSystem;
+    public LoadScene loadScene;
+    private PlayerMovement playerMovement;
+    private InputManager inputManager;
+    private WeponSwitching weponSwitching;
     
 
     private void Awake()
@@ -22,6 +26,10 @@ public class PlayerDamage : MonoBehaviour
         //PistolGunSystem = GameObject.FindGameObjectWithTag("Rifle").GetComponent<GunSystem2>();
         //PistolGunSystem = GameObject.FindGameObjectWithTag("Shotgun").GetComponent<GunSystem2>();
         door = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorOpening>();
+        loadScene = GameObject.FindGameObjectWithTag("Letter").GetComponent<LoadScene>();
+        weponSwitching = GameObject.FindGameObjectWithTag("WeponHolder").GetComponent<WeponSwitching>();
+        playerMovement = GetComponent<PlayerMovement>();
+        inputManager = GetComponent<InputManager>();
     }
 
     //public function because we will need to call it from the gun script
@@ -99,8 +107,14 @@ public class PlayerDamage : MonoBehaviour
 
         if (hit.collider.CompareTag("Letter"))
         {
-            Destroy(hit.gameObject);
-            SceneManager.LoadScene("Level2");
+            //Destroy(hit.gameObject);
+            playerMovement.enabled = false;
+            inputManager.enabled = false;
+            weponSwitching.enabled = false;
+            PistolGunSystem.enabled = false;
+            M4GunSystem.enabled = false;
+            ShotGunSystem.enabled = false;
+            loadScene.LoadLevel("Level2");
         }
     }
 }
