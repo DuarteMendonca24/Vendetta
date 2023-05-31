@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -18,7 +19,12 @@ public class PlayerDamage : MonoBehaviour
     private PlayerMovement playerMovement;
     private InputManager inputManager;
     private WeponSwitching weponSwitching;
-    
+
+    public GameObject gameOverUI;
+
+    public Camera playerCamera;
+    public Camera doorCamera;
+
 
     private void Awake()
     {
@@ -51,7 +57,12 @@ public class PlayerDamage : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        //Scene scene = SceneManager.GetActiveScene();
+        //GameOverMenu overMenu = FindAnyObjectByType<GameOverMenu>();
+        //overMenu.RestartScene(scene.name);
+        //gameOverUI.SetActive(true);
+        // Destroy(gameObject);
+
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -102,6 +113,9 @@ public class PlayerDamage : MonoBehaviour
         if (hit.collider.CompareTag("Key"))
         {
             door.enabled = true;
+            playerCamera.enabled = false;
+            doorCamera.enabled = true;
+            //GameObject.Find("Video").GetComponent<VideoPlayer>().Play();
             Destroy(hit.gameObject);
         }
 

@@ -8,6 +8,9 @@ public class DoorOpening : MonoBehaviour
     public Transform door;
     // Angular speed in degrees per sec.
     float speed = 15.0f;
+    public Camera playerCamera;
+    public Camera doorCamera;
+
 
 
     // Start is called before the first frame update
@@ -26,5 +29,12 @@ public class DoorOpening : MonoBehaviour
 
         // Rotate our transform a step closer to the target's.
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+
+        // Check if the rotation is done
+        if (Quaternion.Angle(transform.rotation, targetRotation) <= 0.01f)
+        {   
+            doorCamera.enabled = false;
+            playerCamera.enabled = true;
+        }
     }
 }
