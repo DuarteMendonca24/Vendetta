@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerDamage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamage>();
         inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
-       //comentei porque me estava a dar erro , funciona na mesma sem este codigo
+       //comentei porque me estava a dar erro 
        //como a rifle e a shotgun começam disabed , não dá para aceder aos seus componentes
        //PistolGunSystem = GameObject.FindGameObjectWithTag("Pistol").GetComponent<GunSystem2>();
        //M4GunSystem = GameObject.FindGameObjectWithTag("Rifle").GetComponent<GunSystem2>();
