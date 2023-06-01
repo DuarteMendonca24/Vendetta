@@ -56,7 +56,9 @@ public class PlayerDamage : MonoBehaviour
 
     }
     void Die()
-    {
+    {   
+        //vejo isto no pauseMenu script
+
         //Scene scene = SceneManager.GetActiveScene();
         //GameOverMenu overMenu = FindAnyObjectByType<GameOverMenu>();
         //overMenu.RestartScene(scene.name);
@@ -69,6 +71,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (hit.collider.CompareTag("SmallHealthKit"))
         {
+            FindObjectOfType<AudioManager>().PlaySound("MedKit");
             health += 20;
             if(health > 50)
             {
@@ -81,13 +84,14 @@ public class PlayerDamage : MonoBehaviour
 
         if (hit.collider.CompareTag("BigHealthKit"))
         {
+            FindObjectOfType<AudioManager>().PlaySound("MedKit");
             health = 50;
             Destroy(hit.gameObject);
         }
 
         if (hit.collider.CompareTag("PistolAmmo"))
         {
-            //Debug.Log("Pistol ammo");
+            FindObjectOfType<AudioManager>().PlaySound("AmmoPickup");
             PistolGunSystem.maxcolder += 12;
             if (PistolGunSystem.maxcolder > 24) PistolGunSystem.maxcolder = 24;
             // Destruir o objeto que foi colidido
@@ -96,6 +100,7 @@ public class PlayerDamage : MonoBehaviour
 
         if (hit.collider.CompareTag("RifleAmmo"))
         {
+            FindObjectOfType<AudioManager>().PlaySound("AmmoPickup");
             M4GunSystem.maxcolder += 20;
             if (M4GunSystem.maxcolder > 40) M4GunSystem.maxcolder = 40;
             // Destruir o objeto que foi colidido
@@ -104,6 +109,7 @@ public class PlayerDamage : MonoBehaviour
 
         if (hit.collider.CompareTag("ShotgunAmmo"))
         {
+            FindObjectOfType<AudioManager>().PlaySound("AmmoPickup");
             ShotGunSystem.maxcolder += 8;
             if (ShotGunSystem.maxcolder > 12) ShotGunSystem.maxcolder = 12;
             // Destruir o objeto que foi colidido

@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject gameOverMenuUI;
 
 
+
     private void Start()
     {
         weponSwitching = GameObject.FindGameObjectWithTag("WeponHolder").GetComponent<WeponSwitching>();
@@ -46,10 +47,11 @@ public class PauseMenu : MonoBehaviour
             }
         }
         else if(playerDamage.health < 0)
-        {   
-
+        {
+            
             gameOverMenuUI.SetActive(true);
-            Pause();
+            //Pause();
+           
         }
 
     }
@@ -72,6 +74,7 @@ public class PauseMenu : MonoBehaviour
     {
        
         Time.timeScale = 0f;
+        
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         playerMovement.enabled = false;

@@ -63,8 +63,9 @@ public class GunSystem2 : MonoBehaviour
                 }
                 else if (gameObject.CompareTag("Rifle"))
                 {
-                    FindObjectOfType<AudioManager>().PlaySound("RifleReload");
-                }
+                FindObjectOfType<AudioManager>().PlaySound("RifleReload");
+                
+            }
                 for (; ammo<maxammo && maxcolder>0; ammo++ )
                     {   
                         maxcolder--;
