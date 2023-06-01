@@ -31,35 +31,49 @@ public class GunSystem2 : MonoBehaviour
     {
         ammoDisplay.text =  ammo.ToString() + "/" + maxcolder.ToString();
 
-        if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0 && Time.time >= nextShotTime)
-        {
-            Shoot();
-            if (gameObject.CompareTag("Pistol"))
+            if (Input.GetButtonDown("Fire1") && PauseMenu.GameIsPaused == false && ammo > 0 && Time.time >= nextShotTime )
             {
-                FindObjectOfType<AudioManager>().PlaySound("PistolShot");
-            }
-            else if (gameObject.CompareTag("Shotgun"))
-            {
-                FindObjectOfType<AudioManager>().PlaySound("ShotgunShot");
-            }
-            else if (gameObject.CompareTag("Rifle"))
-            {
-                FindObjectOfType<AudioManager>().PlaySound("RifleShot");
-            }
+                Shoot();
+                if (gameObject.CompareTag("Pistol"))
+                {
+                    FindObjectOfType<AudioManager>().PlaySound("PistolShot");
+                }
+                else if (gameObject.CompareTag("Shotgun"))
+                {
+                    FindObjectOfType<AudioManager>().PlaySound("ShotgunShot");
+                }
+                else if (gameObject.CompareTag("Rifle"))
+                {
+                    FindObjectOfType<AudioManager>().PlaySound("RifleShot");
+                }
 
 
-        }
+            }
 
         
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-              
-                for(; ammo<maxammo && maxcolder>0; ammo++ )
-                {   
-                    maxcolder--;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (gameObject.CompareTag("Pistol"))
+                {
+                   FindObjectOfType<AudioManager>().PlaySound("PistolReload");
                 }
+                else if (gameObject.CompareTag("Shotgun"))
+                {
+                    FindObjectOfType<AudioManager>().PlaySound("ShotgunReload");
+                }
+                else if (gameObject.CompareTag("Rifle"))
+                {
+                    FindObjectOfType<AudioManager>().PlaySound("RifleReload");
+                }
+                for (; ammo<maxammo && maxcolder>0; ammo++ )
+                    {   
+                        maxcolder--;
+                        
+
+                    }
+            
               
-        }
+            }
     }
 
     public void Shoot()
