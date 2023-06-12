@@ -12,6 +12,7 @@ public class EnemyDamage : MonoBehaviour
     private EnemyRifle enemyRifle;
     private EnemyShotgun enemyShotgun;
     private EnemySniper enemySniper;
+    private Boss boss;
     private KillCount killCount;
 
     private bool isDead = false;
@@ -28,6 +29,7 @@ public class EnemyDamage : MonoBehaviour
         enemyRifle = GetComponent<EnemyRifle>();
         enemyShotgun = GetComponent<EnemyShotgun>();
         enemySniper = GetComponent<EnemySniper>();
+        boss = GetComponent<Boss>();
         capsuleCollider = GetComponent<Collider>();
         killCount = GameObject.Find("Enemies").GetComponent<KillCount>();
     }
@@ -39,6 +41,7 @@ public class EnemyDamage : MonoBehaviour
             if (health <= 0)
             {
                 animator.SetBool("IsDeath", true);
+
                 if (agent != null)
                 {
                     agent.SetDestination(transform.position);
@@ -59,6 +62,11 @@ public class EnemyDamage : MonoBehaviour
                 else if (enemySniper != null)
                 {
                     enemySniper.enabled = false;
+                }
+
+                else if(boss != null)
+                {
+                    Time.timeScale = 0f;
                 }
 
                 
@@ -87,15 +95,15 @@ public class EnemyDamage : MonoBehaviour
     {
         Debug.Log("DROPOU");
         int random = Random.Range(0, 10);
-        if (killCount.killCount < 6)
+        if (killCount.enemyCount >= 2)
         {
-            if (random == 0 || random == 1 || random == 2 || random == 3)
+            if (random == 0 || random == 1 || random == 2 || random == 3 || random == 4 || random == 5)
             {
                 int randomconsumable = Random.Range(0, 5);
                 Instantiate(consumable[randomconsumable], transform.position, Quaternion.identity);
             }
         }
-        else if(killCount.enemyCount == 1)
+        else if(killCount.enemyCount < 2)
         {
             //Debug.Log("Estou aqui");
             Instantiate(key, transform.position, Quaternion.identity);
