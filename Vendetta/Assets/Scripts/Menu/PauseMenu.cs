@@ -50,8 +50,15 @@ public class PauseMenu : MonoBehaviour
         {
             
             gameOverMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+
+            GameIsPaused = true;
+            Cursor.lockState = CursorLockMode.None;
+            playerMovement.enabled = false;
+            inputManager.enabled = false;
+            weponSwitching.enabled = false;
             //Pause();
-           
+
         }
 
     }

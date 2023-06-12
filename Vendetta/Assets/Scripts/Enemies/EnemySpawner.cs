@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void spawnEnemy()
     {   
-        if(!playerInRange && enemyCounter != 1)
+        if(!playerInRange && enemyCounter < range )
         {
             Instantiate(enemy, transform.position, Quaternion.identity, enemypack.transform);
             //enemy.transform.parent = enemypack.transform;

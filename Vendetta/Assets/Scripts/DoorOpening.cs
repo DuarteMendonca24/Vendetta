@@ -25,10 +25,11 @@ public class DoorOpening : MonoBehaviour
         // The step size is equal to speed times frame time.
         var step = speed * Time.deltaTime;
 
-        Quaternion targetRotation = Quaternion.Euler(0f, -90f, 0f);
+        Quaternion targetRotation = Quaternion.Euler(0f, 90f, 0f);
 
         // Rotate our transform a step closer to the target's.
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+        Debug.Log(transform.rotation.y);
 
         // Check if the rotation is done
         if (Quaternion.Angle(transform.rotation, targetRotation) <= 0.01f)
