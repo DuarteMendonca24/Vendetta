@@ -35,8 +35,8 @@ public class AudioManager : MonoBehaviour
 
     //Musica durante o jogo , depois nao esquecer ativar o loop
     private void Start()
-    {
-        PlaySound("Door");
+    {   
+        PlaySound("ThemeSong");
     }
 
     public void PlaySound(string name)
@@ -44,4 +44,14 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
+
+    public void StopSound(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s != null && s.source.isPlaying)
+        {
+            s.source.Stop();
+        }
+    }
+
 }

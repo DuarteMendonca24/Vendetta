@@ -13,6 +13,7 @@ public class ColorChange : MonoBehaviour
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
         Invoke("ChangeTextColor", delay);
+    
     }
 
     private void ChangeTextColor()

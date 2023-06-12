@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        
+        FindObjectOfType<AudioManager>().StopSound("ThemeSong");
+
     }
 
     // Update is called once per frame

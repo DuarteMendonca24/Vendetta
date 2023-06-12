@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextAnimation : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class TextAnimation : MonoBehaviour
     private float deleteTimer = 0f;
     private bool isDeleting = false;
 
+
     private void Start()
     {
         currentText = "";
@@ -24,6 +26,7 @@ public class TextAnimation : MonoBehaviour
         currentIndex = 0;
 
         Invoke("StartAnimation", delayBeforeAnimation);
+       
     }
 
     private void Update()
@@ -71,6 +74,7 @@ public class TextAnimation : MonoBehaviour
         animationStarted = true;
     }
 
+   
     private void DeleteObjects()
     {
         // Delete the parent object
