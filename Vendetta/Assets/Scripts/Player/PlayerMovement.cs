@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         FindObjectOfType<AudioManager>().StopSound("ThemeSong");
+        FindObjectOfType<AudioManager>().PlaySound("GameSong");
 
     }
 

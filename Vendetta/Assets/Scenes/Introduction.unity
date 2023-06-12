@@ -936,6 +936,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: GameSong
+    clip: {fileID: 8300000, guid: 97951203ab768254d9b72f19c485bdb8, type: 3}
+    volume: 2
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &512640641
 Transform:
   m_ObjectHideFlags: 0
