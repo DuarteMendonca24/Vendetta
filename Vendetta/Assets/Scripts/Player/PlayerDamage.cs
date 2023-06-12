@@ -134,7 +134,7 @@ public class PlayerDamage : MonoBehaviour
             PistolGunSystem.enabled = false;
             M4GunSystem.enabled = false;
             ShotGunSystem.enabled = false;
-            loadScene.LoadLevel("Level2");
+            loadScene.LoadLevel("Level2Introduction");
         }
     }
 }
