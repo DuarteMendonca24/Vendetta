@@ -22,13 +22,13 @@ public class EnemySpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         playerInRange = Physics.CheckSphere(transform.position,range, whatIsPlayer);
     }
 
     private void spawnEnemy()
     {   
-        if(!playerInRange && enemyCounter != 10)
+        if(!playerInRange && enemyCounter != 1)
         {
             Instantiate(enemy, transform.position, Quaternion.identity, enemypack.transform);
             //enemy.transform.parent = enemypack.transform;
